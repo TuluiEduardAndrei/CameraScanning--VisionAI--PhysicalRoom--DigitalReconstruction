@@ -7,19 +7,19 @@
       "className": "table",
       "position": { "x": 0, "y": 0, "z": 0 },
       "rotation": { "x": 0, "y": 0, "z": 0 },
-      "scale": { "x": 1, "y": 1, "z": 1 }
+      "scale": { "x": 2, "y": 1, "z": 2 }
     },
     {
       "id": "chair_01",
       "className": "chair",
-      "position": { "x": -1.7, "y": 0, "z": 0 },
+      "position": { "x": -2, "y": 0, "z": 0 },
       "rotation": { "x": 0, "y": 90, "z": 0 },
       "scale": { "x": 1, "y": 1, "z": 1 }
     },
     {
       "id": "chair_02",
       "className": "chair",
-      "position": { "x": 1.7, "y": 0, "z": 0 },
+      "position": { "x": 2, "y": 0, "z": 0 },
       "rotation": { "x": 0, "y": -90, "z": 0 },
       "scale": { "x": 1, "y": 1, "z": 1 }
     },
