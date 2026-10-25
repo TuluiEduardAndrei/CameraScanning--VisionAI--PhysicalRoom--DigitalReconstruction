@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.IO;
+using System.Collections.Generic;
 
 public class SceneJsonSpawner : MonoBehaviour
 {
@@ -8,12 +8,15 @@ public class SceneJsonSpawner : MonoBehaviour
     public GameObject tablePrefab;
     public GameObject couchPrefab;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        string path = Path.Combine(Application.streamingAssetsPath, "scene.json");
+    private List<GameObject> spawnedObjects = new List<GameObject>();
 
-        string json = File.ReadAllText(path);
+    public void SpawnFromJson(string json)
+    {
+        foreach (GameObject obj in spawnedObjects)
+        {
+            Destroy(obj);
+        }
+        spawnedObjects.Clear();
 
         SceneData scene = JsonUtility.FromJson<SceneData>(json);
 
@@ -38,6 +41,8 @@ public class SceneJsonSpawner : MonoBehaviour
             obj.name = item.id;
 
             obj.transform.localScale = Vector3.Scale(prefab.transform.localScale, item.scale);
+
+            spawnedObjects.Add(obj);
         }
     }
 

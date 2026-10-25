@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d710c968002f141d7bc8fffae6808a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaceableSpawner
-  prefabToSpawn: {fileID: 0}
+  prefabToSpawn: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &290049676
@@ -569,6 +569,8 @@ GameObject:
   m_Component:
   - component: {fileID: 645849102}
   - component: {fileID: 645849101}
+  - component: {fileID: 645849103}
+  - component: {fileID: 645849104}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -583,7 +585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645849100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70fc612a2e5554abeb417e296f619a0e, type: 3}
   m_Name: 
@@ -606,6 +608,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &645849103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645849100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbca7a5b628694cb49b33ebec1f83101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityWebSocketClient
+  spawner: {fileID: 645849104}
+--- !u!114 &645849104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645849100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f293ac23abc4df7855f5bc7bf9f5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneJsonSpawner
+  chairPrefab: {fileID: 9121862141993526714, guid: f8abb20e9cf0b4ef895e1a64698d89ee, type: 3}
+  tablePrefab: {fileID: 4499096159735610240, guid: 0e48fdb087fd74149941d49bd170e1f8, type: 3}
+  couchPrefab: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
