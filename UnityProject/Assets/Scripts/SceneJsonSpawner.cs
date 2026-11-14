@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class SceneJsonSpawner : MonoBehaviour
 {
+    public GameObject floor;
+
     [Header("Prefabs")]
     public GameObject chairPrefab;
     public GameObject tablePrefab;
@@ -43,6 +45,21 @@ public class SceneJsonSpawner : MonoBehaviour
             obj.name = item.id;
 
             obj.transform.localScale = Vector3.Scale(prefab.transform.localScale, item.scale);
+
+            if (item.className == "chair" || item.className == "couch" || item.className == "table")
+            {
+                Vector3 position = obj.transform.position;
+                position.y = floor.transform.position.y;
+                obj.transform.position = position;
+            }
+
+            /* Here comes the adjustment for lifting the objects up in case they are rendered inside the floor.*/
+            // if (obj.transform.position.y < floor.transform.position.y)
+            // {
+            //     Vector3 position = obj.transform.position;
+            //     position.y = floor.transform.position.y;
+            //     obj.transform.position = position;
+            // }
 
             spawnedObjects.Add(obj);
         }
