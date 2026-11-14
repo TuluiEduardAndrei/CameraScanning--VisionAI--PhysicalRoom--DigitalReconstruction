@@ -636,6 +636,8 @@ MonoBehaviour:
   chairPrefab: {fileID: 9121862141993526714, guid: f8abb20e9cf0b4ef895e1a64698d89ee, type: 3}
   tablePrefab: {fileID: 4499096159735610240, guid: 0e48fdb087fd74149941d49bd170e1f8, type: 3}
   couchPrefab: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
+  tvPrefab: {fileID: 3093325556273740728, guid: ba706239defda413bb3d54844ff92d4c, type: 3}
+  laptopPrefab: {fileID: 545951011826497123, guid: 0c1675557e03d491dae72672ed4b6f9a, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

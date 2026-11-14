@@ -2,39 +2,34 @@ import asyncio
 import json
 from websockets.asyncio.server import serve
 
-unity = None  # The only connected client
+unity = None
 
-# Called when Unity client connects to the server
+# Open Server -> Unity -> Detector in this order
 async def on_client_connected(connection):
     global unity
 
-    unity = connection
-    print("Unity connected!")
+    # First message identifies the client
+    message = await connection.recv()
+    role = json.loads(message)["role"]
 
-    # Keep the connection alive
-    await connection.wait_closed()
+    if role == "unity":
+        unity = connection
+        print("Unity connected!")
 
-    print("Unity disconnected!")
+        await connection.wait_closed()
 
+    elif role == "detector":
+        print("Detector connected!")
 
-async def send_json(data):
-    if unity is not None:
-        await unity.send(json.dumps(data))
+        async for message in connection:
+            await unity.send(message)
+            print("Scene sent to Unity!")
 
 
 async def main():
     async with serve(on_client_connected, "localhost", 8765) as server:
         print("Server running!")
-        # await server.serve_forever()
-
-        while True:
-            await asyncio.to_thread(input, "Press ENTER to send JSON: ")
-
-            with open("scene.json", "r") as file:
-                data = json.load(file)
-
-            await send_json(data)
-
+        await server.serve_forever()
 
 
 if __name__ == "__main__":

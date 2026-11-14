@@ -16,9 +16,10 @@ public class UnityWebSocketClient : MonoBehaviour
 
         connection = new WebSocket("ws://localhost:8765");
 
-        connection.OnOpen += () =>
+        connection.OnOpen += async () =>
         {
             Debug.Log("Connected to Python!");
+            await connection.SendText("{\"role\":\"unity\"}");
         };
 
         connection.OnMessage += (bytes) =>

@@ -62,12 +62,6 @@ public class FreeCamera : MonoBehaviour
         if (keyboard.leftShiftKey.isPressed)
             currentSpeed *= sprintMultiplier;
 
-        transform.position +=
-            direction.normalized * currentSpeed * Time.deltaTime;
-    }
-
-    private void OnDisable()
-    {
-        Cursor.lockState = CursorLockMode.None;
+        transform.position += direction.normalized * currentSpeed * Time.deltaTime;
     }
 }

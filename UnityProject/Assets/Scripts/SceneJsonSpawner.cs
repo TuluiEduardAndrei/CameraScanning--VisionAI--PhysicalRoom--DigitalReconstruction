@@ -7,6 +7,8 @@ public class SceneJsonSpawner : MonoBehaviour
     public GameObject chairPrefab;
     public GameObject tablePrefab;
     public GameObject couchPrefab;
+    public GameObject tvPrefab;
+    public GameObject laptopPrefab;
 
     private List<GameObject> spawnedObjects = new List<GameObject>();
 
@@ -58,6 +60,12 @@ public class SceneJsonSpawner : MonoBehaviour
 
             case "couch":
                 return couchPrefab;
+
+            case "tv":
+                return tvPrefab;
+
+            case "laptop":
+                return laptopPrefab;
 
             default:
                 return null;

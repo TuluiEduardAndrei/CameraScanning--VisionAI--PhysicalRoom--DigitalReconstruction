@@ -1,0 +1,9 @@
+[project]
+name = "camerascanning-visionai-physicalroom-digitalreconstruction"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.5.4",
+    "ultralytics>=8.4.200",
+    "websockets>=17.4",
+]
