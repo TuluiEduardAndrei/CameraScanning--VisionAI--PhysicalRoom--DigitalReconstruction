@@ -33,7 +33,7 @@ public class SceneJsonSpawnerFromFilePath : MonoBehaviour
                 continue;
             }
 
-            GameObject obj = Instantiate(prefab, item.position, Quaternion.Euler(item.rotation));
+            GameObject obj = Instantiate(prefab, item.extractedPosition, Quaternion.Euler(item.extractedRotation));
 
             obj.name = item.id;
 

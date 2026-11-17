@@ -27,7 +27,7 @@ async def on_client_connected(connection):
 
 
 async def main():
-    async with serve(on_client_connected, "localhost", 8765) as server:
+    async with serve(on_client_connected, "0.0.0.0", 8765) as server:
         print("Server running!")
         await server.serve_forever()
 

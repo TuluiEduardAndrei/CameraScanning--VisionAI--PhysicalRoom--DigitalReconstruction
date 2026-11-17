@@ -61,8 +61,8 @@ def detect_and_process(image, depth_file):
         objects.append({
             "id": f"{class_name}_{index}",
             "className": class_name,
-            "position": {"x": X, "y": Y, "z": Z},
-            "rotation": {"x": 0, "y": 0, "z": 0},
+            "extractedPosition": {"x": X, "y": Y, "z": Z},
+            "extractedRotation": {"x": 0, "y": 0, "z": 0},
             "scale": {"x": 1, "y": 1, "z": 1}
         })
 

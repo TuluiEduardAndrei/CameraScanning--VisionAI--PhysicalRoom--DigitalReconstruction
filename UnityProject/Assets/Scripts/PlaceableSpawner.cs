@@ -37,7 +37,7 @@ public class PlaceableSpawner : MonoBehaviour
             return;
         }
 
-        GameObject spawnedObject = Instantiate(prefabToSpawn, data.position, Quaternion.Euler(data.rotation));
+        GameObject spawnedObject = Instantiate(prefabToSpawn, data.extractedPosition, Quaternion.Euler(data.extractedRotation));
     }
     private void Update()
     {
