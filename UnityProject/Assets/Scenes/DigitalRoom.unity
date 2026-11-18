@@ -155,7 +155,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -228,53 +228,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &290049674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 290049676}
-  - component: {fileID: 290049675}
-  m_Layer: 0
-  m_Name: EmptySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &290049675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290049674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d710c968002f141d7bc8fffae6808a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceableSpawner
-  prefabToSpawn: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
-  position: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
---- !u!4 &290049676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290049674}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.00029, y: 0, z: -1.15554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -568,7 +521,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 645849102}
-  - component: {fileID: 645849101}
   - component: {fileID: 645849103}
   - component: {fileID: 645849104}
   m_Layer: 0
@@ -578,21 +530,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &645849101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645849100}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fc612a2e5554abeb417e296f619a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneJsonSpawner
-  chairPrefab: {fileID: 9121862141993526714, guid: f8abb20e9cf0b4ef895e1a64698d89ee, type: 3}
-  tablePrefab: {fileID: 4499096159735610240, guid: 0e48fdb087fd74149941d49bd170e1f8, type: 3}
-  couchPrefab: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
 --- !u!4 &645849102
 Transform:
   m_ObjectHideFlags: 0
@@ -639,6 +576,9 @@ MonoBehaviour:
   couchPrefab: {fileID: 4593675887308799123, guid: 144f57c313b5d49428ed95b556c1c809, type: 3}
   tvPrefab: {fileID: 3093325556273740728, guid: ba706239defda413bb3d54844ff92d4c, type: 3}
   laptopPrefab: {fileID: 545951011826497123, guid: 0c1675557e03d491dae72672ed4b6f9a, type: 3}
+  closetPrefab: {fileID: 4329732076888240436, guid: c930151decb7e4527bc823fa23ecaafd, type: 3}
+  spawnedObjects: []
+  objectsData: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,6 +635,5 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 290049676}
   - {fileID: 124535132}
   - {fileID: 645849102}

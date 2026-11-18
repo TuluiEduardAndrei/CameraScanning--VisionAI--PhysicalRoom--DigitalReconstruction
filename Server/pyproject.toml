@@ -1,7 +1,0 @@
-[project]
-name = "server-to-digital-twin"
-version = "0.1.0"
-requires-python = ">=3.14"
-dependencies = [
-    "websockets>=17.3",
-]

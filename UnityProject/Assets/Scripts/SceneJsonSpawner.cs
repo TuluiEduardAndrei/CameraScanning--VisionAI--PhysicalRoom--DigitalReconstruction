@@ -11,6 +11,7 @@ public class SceneJsonSpawner : MonoBehaviour
     public GameObject couchPrefab;
     public GameObject tvPrefab;
     public GameObject laptopPrefab;
+    public GameObject closetPrefab;
 
     public List<GameObject> spawnedObjects = new List<GameObject>();
     public List<TrackedObject> objectsData = new List<TrackedObject>();
@@ -25,9 +26,15 @@ public class SceneJsonSpawner : MonoBehaviour
             return;
         }
 
+        // ClearObjectLists(spawnedObjects, objectsData);
+
         foreach (ObjectData item in scene.objects)
         {
-            GameObject prefab = GetPrefab(item.className);
+            TrackedObject newObject = new TrackedObject(item);
+
+            newObject.className = NormalizeClassName(item.className);
+
+            GameObject prefab = GetPrefab(newObject.className);
 
             if (prefab == null)
             {
@@ -35,7 +42,6 @@ public class SceneJsonSpawner : MonoBehaviour
                 continue;
             }
 
-            TrackedObject newObject = new TrackedObject(item);
             newObject.observationTime = Time.time;
 
             bool ok = true;
@@ -43,7 +49,7 @@ public class SceneJsonSpawner : MonoBehaviour
             {
                 float distance = Vector3.Distance(newObject.extractedPosition, existingObject.extractedPosition);
 
-                if (distance < 0.15f && newObject.className == existingObject.className && existingObject.rendered == true)
+                if (distance < 1.0f && newObject.className == existingObject.className && existingObject.rendered == true)
                 {
                     newObject.rendered = false;
                     newObject.similarRenderedObjectId = existingObject.id;
@@ -87,9 +93,19 @@ public class SceneJsonSpawner : MonoBehaviour
         AlignObjectsWithTables();
     }
 
+    void ClearObjectLists(List<GameObject> spawnedList, List<TrackedObject> allList)
+    {
+        foreach (GameObject obj in spawnedList)
+        {
+            Destroy(obj);
+        }
+        spawnedList.Clear();
+        allList.Clear();
+    }
+
     GameObject GetPrefab(string className)
     {
-        switch(className)
+        switch (className)
         {
             case "chair":
                 return chairPrefab;
@@ -101,6 +117,44 @@ public class SceneJsonSpawner : MonoBehaviour
                 return tvPrefab;
             case "laptop":
                 return laptopPrefab;
+            case "closet":
+                return closetPrefab;
+            default:
+                return null;
+        }
+    }
+
+    string NormalizeClassName(string className)
+    {
+        if (string.IsNullOrWhiteSpace(className))
+            return null;
+
+        switch (className.Trim().ToLowerInvariant())
+        {
+            case "chair":
+                return "chair";
+
+            case "table":
+            case "desk":
+            case "coffee table":
+                return "table";
+
+            case "couch":
+            case "sofa bed":
+            case "sofa":
+                return "couch";
+
+            case "tv":
+            case "computer monitor":
+                return "tv";
+
+            case "laptop":
+            case "computer keyboard":
+                return "laptop";
+
+            case "refrigerator":
+                return "closet";
+
             default:
                 return null;
         }
